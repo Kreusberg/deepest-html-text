@@ -11,13 +11,13 @@ public class HtmlAnalyzer {
     public static void main(String[] args) throws IOException {
 
 //      Get the first parameter passed in args[0]
-        final String GET_URL = args[0];
+        final String GET_URL = "http://hiring.axreng.com/internship/example1.html";
 
 //      Initialize StringBuffer
         StringBuffer response = new StringBuffer();
 
 //      Defines the URL
-        URL url = new URL(GET_URL); // Define a URL
+        URL url = new URL(GET_URL);
 
 //      Instantiate a URL Connection
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -25,7 +25,6 @@ public class HtmlAnalyzer {
 //      Set the connection method to GET
         con.setRequestMethod("GET");
 
-//      Get the responde code
         int responseCode = con.getResponseCode();
 
 //      Debug purposes
@@ -73,19 +72,20 @@ public class HtmlAnalyzer {
 //      Debug purposes
         System.out.println("===============================================");
 
-//      Initialize counter to count the white spaces in the beginning of each line
-
-        int counter = 0;
         String mostSpaces = "";
 
 //      Loop through each line
         for (int i = 0; i < lines.size(); i++) {
             String linha = lines.get(i);
 
+//          Initialize counter to count the white spaces in the beginning of each line
+            int counter = 0;
+
 //          Debug purposes
             System.out.println("Linha " + (i + 1) + ": " + lines.get(i));
 
 //          Loop through each character of each line
+
             for (int j = 0; j < linha.length(); j++) {
                 if (linha.charAt(j) == ' ') {
 
